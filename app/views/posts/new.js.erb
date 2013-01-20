@@ -1,0 +1,4 @@
+
+
+$('#title').html("Enter your post");
+$('#posts-content').html("<%= escape_javascript(render 'form', locals: { current_user: @current_user, post: @post}) %>");

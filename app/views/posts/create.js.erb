@@ -1,0 +1,2 @@
+$('#title').html("Posts");
+$('#posts-content').html("<%= escape_javascript(render "posts", locals: {posts: @post}) %>");

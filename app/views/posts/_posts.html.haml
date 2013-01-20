@@ -1,0 +1,16 @@
+
+%table
+  -# unless @posts.embedded.nil?
+  - @posts.each do |post|
+    %tr
+      %td= link_to post.title, post
+      - if current_user.try(:id) == post.user.id
+        %td= link_to ' | Edit', edit_post_path(post), class: "edit-post"
+        %td= link_to ' | Delete', post, method: :delete, class: "del-post", remote: true, data: { confirm: 'Are you sure?' }
+  -# else
+    -#There is no post to show
+%br
+- if current_user
+  = link_to 'Add a Post', new_post_path, :remote => true
+- else
+  %i You must be logged to add a post
